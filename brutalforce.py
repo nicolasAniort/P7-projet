@@ -30,10 +30,12 @@ actions = []
 with open('data_test.csv', newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=';')
     for row in reader:
+        price = row['price'].replace(',', '.')
+        profit = row['profit'].replace(',', '.')
         actions.append({
             'Action': row['name'],
             'Cost': int(row['price']),
-            'Profit': float(row['benefit'].replace(',', '.'))
+            'Profit': round(float(profit), 2)
         })
 
 # Paramètres pour l'algorithme
