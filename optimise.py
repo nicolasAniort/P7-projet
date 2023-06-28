@@ -6,7 +6,6 @@ start = time.time()
 def ponderation(actions, max_budget):
     moy_profit = (sum((action['Profit']) for action in actions))/len(actions)
     moy_cost = (sum((action['Cost']) for action in actions))/len(actions)
-    moy_benef = (sum((action['Profit'] * action['Cost']) for action in actions))/len(actions)
     
     sorted_actions = sorted(actions, key=lambda x: x['Profit'], reverse=True)
     
@@ -21,19 +20,18 @@ def ponderation(actions, max_budget):
                 a['Ponderation'] = 2
                 result.append(a)
                 sum_cost += a['Cost']
-                #print (f"sum_cost est {sum_cost} et a['Cost'] est {a['Cost']} et max_budget est {max_budget}")
+                
         elif profit >= (moy_profit) and cost <= moy_cost and((sum_cost + a['Cost']) < max_budget):
                 a['Ponderation'] = 1
                 result.append(a)
                 sum_cost += a['Cost']
-                #print (f"sum_cost est {sum_cost} et a['Cost'] est {a['Cost']} et max_budget est {max_budget}")
+                
         elif profit >= (moy_profit) and cost >= moy_cost and((sum_cost + a['Cost']) < max_budget):
                 a['Ponderation'] = 0
                 result.append(a)
                 sum_cost += a['Cost']
-                #print (f"sum_cost est {sum_cost} et a['Cost'] est {a['Cost']} et max_budget est {max_budget}")
-    
-    return result  # Modification : Retourne la liste d'actions modifiée
+                
+    return result  # Retourne la liste d'actions modifiée
 
 # Lecture des données à partir du fichier CSV
 actions = []

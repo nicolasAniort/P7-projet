@@ -50,6 +50,8 @@ for action in best_combination:
     print(action['Action'], '- Coût:', action['Cost'], '€ - Bénéfice:', action['Profit'])
 
 end = time.time()
-print("Profit total :", sum((action['Profit'] * action['Cost']) for action in best_combination))
+#print("Profit total :", sum((action['Profit'] * action['Cost']) for action in best_combination))
+total_profit = round(sum(round(float(action['Profit']) * round(float(action['Cost']), 2), 2) for action in best_combination), 2)
+print("Profit total :", total_profit)
 print("depense:", sum(action['Cost'] for action in best_combination))
 print(f"Temps d'execution : {end - start} secondes")
