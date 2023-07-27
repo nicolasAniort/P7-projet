@@ -4,14 +4,10 @@ import os, psutil
 
 start = time.time()
 
-# Obtenir le nombre de cœurs du processeur
-num_cores = psutil.cpu_count(logical=True)
-print("Nombre de cœurs du processeur logiques :", num_cores)
+# Mesurer l'utilisation des ressources avant l'exécution de l'algorithme bruteforce
+cpu_before = psutil.cpu_percent(interval=1, percpu=True)
+memory_before = psutil.virtual_memory().used
 
-# Obtenir l'utilisation de la RAM
-
-ram_usage = psutil.virtual_memory().used
-print("Utilisation de la RAM :", ram_usage, "octets")
 
 def ponderation(actions, max_budget):
     moy_profit = (sum((action['Profit']) for action in actions))/len(actions)
@@ -63,6 +59,10 @@ max_budget = 500
 # Appel de la fonction pour maximiser le profit
 best_combination = ponderation(actions, max_budget)
 
+# Mesurer l'utilisation des ressources après l'exécution de l'algorithme bruteforce
+cpu_after = psutil.cpu_percent(interval=1, percpu=True)
+memory_after = psutil.virtual_memory().used
+
 # Affichage des résultats
 print("Meilleure combinaison d'actions :")
 for action in best_combination:
@@ -75,14 +75,14 @@ total_depense = round(sum(round(float(action['Cost']), 2) for action in best_com
 print("Dépense :", total_depense)
 print(f"Temps d'exécution : {end - start} secondes")
 
-# Obtenez à nouveau l'utilisation de la RAM après l'exécution de votre code
-ram_usage_after = psutil.virtual_memory().used
-print("Utilisation de la RAM après l'exécution :", ram_usage_after, "octets")
+# Calculer la différence d'utilisation des ressources
+cpu_diff = [after - before for before, after in zip(cpu_before, cpu_after)]
+memory_diff = memory_after - memory_before
 
-# Calculer la différence d'utilisation de la RAM
-ram_usage_diff = ram_usage_after - ram_usage
-print("Différence d'utilisation de la RAM :", ram_usage_diff, "octets")
-
-# Obtenir le nombre de cœurs utilisés par votre programme
-used_cores = psutil.cpu_count(logical=True) - psutil.cpu_count(logical=False)
-print("Nombre de cœurs utilisés par votre programme :", used_cores)
+# Afficher les résultats
+print("Utilisation CPU avant :", cpu_before)
+print("Utilisation CPU après :", cpu_after)
+print("Différence d'utilisation CPU :", cpu_diff)
+print("Utilisation mémoire avant :", memory_before)
+print("Utilisation mémoire après :", memory_after)
+print("Différence d'utilisation mémoire :", memory_diff)
