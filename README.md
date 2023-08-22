@@ -1,7 +1,7 @@
 # P7-projet
 Vous venez de rejoindre **AlgoInvest&Trade**, une société financière spécialisée dans l'investissement. La société cherche à optimiser ses stratégies d'investissement à l'aide d'algorithmes, afin de dégager davantage de bénéfices pour ses clients.
 
-![Le logo de l’entreprise](Aspose.Words.51c987ca-aacf-44c8-820b-973a5557d066.001.png)Le logo de l’entreprise
+![Le logo de l’entreprise]([Aspose.Words.51c987ca-aacf-44c8-820b-973a5557d066.001.png](https://github.com/nicolasAniort/P7-projet/blob/master/Aspose.Words.51c987ca-aacf-44c8-820b-973a5557d066.001.png))Le logo de l’entreprise
 
 Vous avez passé vos premiers jours à rencontrer votre petite équipe de six personnes. Votre responsable technique, Robin, a expliqué que même si tous les membres de l'équipe connaissent les termes techniques, ils sont en revanche tous issus de l'économie et de la finance, plutôt que de l'informatique. Comme vous êtes un des seuls développeurs, votre rôle sera principalement de traduire leurs besoins commerciaux en solutions techniques.
 
