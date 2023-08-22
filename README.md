@@ -1,4 +1,4 @@
-# P7-projet
+# P7-Résolvez des problèmes en utilisant des algorithmes en Python
 Vous venez de rejoindre **AlgoInvest&Trade**, une société financière spécialisée dans l'investissement. La société cherche à optimiser ses stratégies d'investissement à l'aide d'algorithmes, afin de dégager davantage de bénéfices pour ses clients.
 
 ![Le logo de l’entreprise]([Aspose.Words.51c987ca-aacf-44c8-820b-973a5557d066.001.png](https://github.com/nicolasAniort/P7-projet/blob/master/Aspose.Words.51c987ca-aacf-44c8-820b-973a5557d066.001.png))Le logo de l’entreprise
